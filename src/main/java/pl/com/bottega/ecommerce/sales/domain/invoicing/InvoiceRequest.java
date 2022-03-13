@@ -31,8 +31,6 @@ public class InvoiceRequest {
 
     public Invoice request(){
         Invoice invoice = new Invoice(Id.generate(), client);
-        TaxCalculatorSimpleImpl calculatorSimple = new TaxCalculatorSimpleImpl(invoice);
-        calculatorSimple.calculateTaxes(items);
-        return invoice;
+        return new TaxCalculatorSimpleImpl(invoice).calculateTaxes(items);
     }
 }
