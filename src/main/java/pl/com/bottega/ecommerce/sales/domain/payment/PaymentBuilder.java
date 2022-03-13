@@ -36,8 +36,4 @@ public class PaymentBuilder {
     public Payment build(){
         return new Payment(aggregateId, clientData, amount);
     }
-
-    private boolean validatePayment(Payment payment){
-        return ((payment.getAmount() != null && payment.getClientData() != null && payment.getAggregateId() != null));
-    }
 }
