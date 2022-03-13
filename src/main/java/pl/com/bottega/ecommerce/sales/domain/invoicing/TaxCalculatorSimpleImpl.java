@@ -9,8 +9,8 @@ public class TaxCalculatorSimpleImpl extends TaxCalculator {
     @Override
     public InvoiceLine calculateTax(RequestItem item) {
         Money net = item.getTotalCost();
-        BigDecimal ratio = null;
-        String desc = null;
+        BigDecimal ratio;
+        String desc;
 
         switch (item.getProductData().getType()) {
             case DRUG:
