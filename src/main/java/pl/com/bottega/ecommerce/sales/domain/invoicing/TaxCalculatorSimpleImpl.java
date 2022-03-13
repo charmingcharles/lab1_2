@@ -6,6 +6,10 @@ import java.math.BigDecimal;
 
 public class TaxCalculatorSimpleImpl extends TaxCalculator {
 
+    public TaxCalculatorSimpleImpl(Invoice invoice) {
+        super(invoice);
+    }
+
     @Override
     public InvoiceLine calculateTax(RequestItem item) {
         Money net = item.getTotalCost();

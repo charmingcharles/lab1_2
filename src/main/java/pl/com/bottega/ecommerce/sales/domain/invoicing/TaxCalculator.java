@@ -4,7 +4,13 @@ import java.util.List;
 
 abstract class TaxCalculator {
 
-    public Invoice calculateTaxes(Invoice invoice, List<RequestItem> items) {
+    Invoice invoice;
+
+    public TaxCalculator(Invoice invoice){
+        this.invoice = invoice;
+    }
+
+    public Invoice calculateTaxes(List<RequestItem> items) {
         for (RequestItem item : items) {
             invoice.addItem(calculateTax(item));
         }

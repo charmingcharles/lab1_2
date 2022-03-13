@@ -1,6 +1,5 @@
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,7 +7,6 @@ import java.util.List;
 
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
-import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class InvoiceRequest {
 
@@ -33,8 +31,8 @@ public class InvoiceRequest {
 
     public Invoice request(){
         Invoice invoice = new Invoice(Id.generate(), client);
-        TaxCalculatorSimpleImpl calculatorSimple = new TaxCalculatorSimpleImpl(); //todo add invoice
-        calculatorSimple.calculateTaxes(invoice, items);
+        TaxCalculatorSimpleImpl calculatorSimple = new TaxCalculatorSimpleImpl(invoice);
+        calculatorSimple.calculateTaxes(items);
         return invoice;
     }
 }
